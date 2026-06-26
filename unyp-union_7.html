@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odborová organizace zaměstnanců UNYP</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+:root{--navy:#1C2B3A;--cream:#FAF8F5;--cream-card:#F0EDE6;--gold:#C9952A;--text-dark:#1C2B3A;--text-muted:#6B7280;--border:#DDD9D0}
+body{font-family:'Inter',sans-serif;background:#F5EDD8;color:var(--text-dark);font-size:16px;line-height:1.7}
+.page-frame{max-width:1280px;margin:0 auto;background:var(--cream);box-shadow:0 0 30px rgba(28,43,58,0.1)}
+@media(max-width:768px){body{background:var(--cream)}}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+nav{background:var(--navy);padding:2rem 0 1rem}
+.nav-inner{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.nav-right{padding-top:8px}
+.logo{display:flex;align-items:center;gap:.75rem}
+.logo-title{font-family:'Lora',serif;color:#fff;font-size:23px;font-weight:600;line-height:1.15}
+.logo-sub{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:2px;font-weight:500;white-space:nowrap}
+.nav-right{display:flex;flex-direction:column;align-items:flex-end;gap:1.25rem}
+.nav-top-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:flex-end}
+.nav-cta-row{display:flex;justify-content:flex-end}
+.nav-links{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;transition:color .2s;cursor:pointer;white-space:nowrap}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--gold);color:#fff !important;padding:.5rem 1.25rem;border-radius:4px;font-weight:500}
+.nav-cta:hover{background:#B8841F !important}
+.lang-switch{display:flex;border:1px solid rgba(255,255,255,0.25);border-radius:4px;overflow:hidden}
+.lang-btn{padding:.35rem .7rem;font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.6);letter-spacing:.05em;transition:all .2s}
+.lang-btn.active{background:var(--gold);color:#fff}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-right{justify-content:flex-end}
+  .section-intro{max-width:100%}
+  .two-col{grid-template-columns:1fr !important}
+  .member-steps{grid-template-columns:1fr !important}
+  .step{border-right:none !important;border-bottom:0.5px solid var(--border)}
+  .hero-stat{gap:1.5rem}
+  .footer-inner{grid-template-columns:1fr !important}
+}
+.faq{margin-top:2rem}
+.faq-item{border-bottom:0.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:1.25rem 0;font-size:15px;font-weight:600;color:var(--text-dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:'Inter',sans-serif}
+.faq-q::after{content:'+';font-size:1.4rem;color:var(--gold);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:14px;color:var(--text-muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem}
+.docs-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.doc-card{display:flex;align-items:center;gap:1.25rem;background:var(--cream-card);border:0.5px solid var(--border);border-radius:8px;padding:1.25rem 1.5rem;text-decoration:none;transition:all .2s;position:relative}
+.doc-card:hover{border-color:var(--gold);transform:translateX(4px)}
+.doc-icon{width:42px;height:42px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-icon svg{width:20px;height:20px}
+.doc-text h3{font-size:15px;font-weight:600;color:var(--text-dark);margin-bottom:.2rem}
+.doc-text p{font-size:13px;color:var(--text-muted);line-height:1.5}
+.doc-arrow{margin-left:auto;color:var(--gold);font-size:1.2rem;flex-shrink:0}
+.hero{background:var(--navy);padding:5rem 0 4rem;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.hero-people{position:absolute;right:11rem;bottom:0;width:28%;max-width:320px;opacity:.85;z-index:1;pointer-events:none}
+@media(max-width:768px){.hero-people{display:none}}
+.proc-crowd{display:block;margin:0 auto 3rem;max-width:600px;width:100%;opacity:.95}
+
+.hero::before{content:'';position:absolute;top:0;right:0;width:400px;height:100%;background:linear-gradient(135deg,transparent 50%,rgba(201,149,42,0.08) 100%)}
+.hero-eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.5rem}
+.hero h1{font-family:'Lora',serif;font-style:italic;font-weight:500;font-size:clamp(1.5rem,2.6vw,2rem);color:#fff;line-height:1.4;max-width:680px;margin-bottom:1.25rem}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{color:rgba(255,255,255,0.7);font-size:1.05rem;max-width:560px;margin-bottom:2.5rem;line-height:1.8}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:#fff;padding:.75rem 1.75rem;border-radius:4px;text-decoration:none;font-weight:500;font-size:15px;transition:background .2s;cursor:pointer;display:inline-block}
+.btn-primary:hover{background:#B8841F}
+.btn-ghost{border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.85);padding:.75rem 1.75rem;border-radius:4px;text-decoration:none;font-weight:500;font-size:15px;transition:all .2s;cursor:pointer;display:inline-block}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.7);color:#fff}
+.hero-stat{display:flex;gap:3rem;margin-top:3rem;flex-wrap:wrap}
+.stat-item .num{font-family:'Lora',serif;font-size:2rem;color:var(--gold);font-weight:600;line-height:1}
+.stat-item .label{font-size:12px;color:rgba(255,255,255,0.55);margin-top:.35rem;text-transform:uppercase;letter-spacing:.06em}
+.section{padding:5rem 0}
+.section-white{background:#fff}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.75rem}
+.section h2{font-family:'Lora',serif;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem;line-height:1.25;color:var(--text-dark)}
+.section-intro{color:var(--text-muted);font-size:1.05rem;max-width:560px;margin-bottom:3rem}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.pillar{background:var(--cream-card);border:0.5px solid var(--border);border-radius:8px;padding:1.75rem;position:relative}
+.pillar-accent{position:absolute;top:0;left:0;width:3px;height:40px;background:var(--gold);border-radius:0 0 2px 0}
+.pillar-icon{width:40px;height:40px;background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.pillar-icon svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8}
+.pillar h3{font-size:16px;font-weight:600;margin-bottom:.5rem;line-height:1.3;color:var(--text-dark)}
+.pillar p{font-size:14px;color:var(--text-muted);line-height:1.65}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+.about-text p{color:var(--text-muted);font-size:15px;line-height:1.8;margin-bottom:1rem}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;align-items:stretch}
+.team-card{background:var(--cream-card);border:0.5px solid var(--border);border-radius:8px;padding:1rem 1.25rem;display:flex;flex-direction:column;justify-content:center;min-height:90px}
+.team-card .name{font-weight:600;font-size:14px;color:var(--text-dark);line-height:1.3}
+.team-card .role{font-size:12px;color:var(--gold);margin-top:.2rem}
+.affil-box{background:var(--navy);border-radius:8px;padding:1.75rem;margin-top:2.5rem}
+.affil-box h4{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.affil-box p{color:rgba(255,255,255,0.7);font-size:14px;line-height:1.7}
+.affil-box strong{color:#fff}
+.member-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;background:#fff;counter-reset:step}
+.step{padding:2rem 2rem;border-right:0.5px solid var(--border);counter-increment:step;display:flex;flex-direction:column}
+.step:last-child{border-right:none}
+.step::before{content:counter(step,decimal-leading-zero);font-family:'Lora',serif;font-size:2.5rem;color:var(--gold);opacity:.5;line-height:1;display:block;margin-bottom:1rem}
+.step h3{font-size:15px;font-weight:600;margin-bottom:.75rem;color:var(--text-dark);line-height:1.4}
+.step p{font-size:13px;color:var(--text-muted);line-height:1.7;word-break:break-word}
+.benefits-list{list-style:none;margin-top:1.5rem}
+.benefits-list li{display:flex;gap:.75rem;align-items:flex-start;padding:.75rem 0;border-bottom:.5px solid var(--border);font-size:15px;color:var(--text-dark)}
+.benefits-list li:last-child{border-bottom:none}
+.benefits-list li::before{content:'✓';color:var(--gold);font-weight:600;flex-shrink:0;margin-top:.05rem}
+.contact-band{background:var(--gold);padding:3.5rem 0}
+.contact-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.contact-inner h2{font-family:'Lora',serif;font-size:1.8rem;color:#fff;max-width:420px;line-height:1.25}
+.contact-inner a{background:#fff;color:var(--navy);padding:.75rem 1.75rem;border-radius:4px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap}
+footer{background:var(--navy);padding:3rem 0 2rem}
+.footer-inner{display:grid;grid-template-columns:1.8fr 1fr 1.4fr;gap:2.5rem;margin-bottom:2.5rem}
+@media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+.footer-logo{font-family:'Lora',serif;color:#fff;font-size:1.1rem;margin-bottom:.75rem;margin-top:-0.5rem}
+.footer-desc{color:rgba(255,255,255,0.5);font-size:13px;line-height:1.7}
+.footer-slogans{display:flex;flex-direction:column;gap:.6rem;margin-top:.25rem}
+.footer-slogans span{font-family:'Lora',serif;font-style:italic;color:rgba(255,255,255,0.65);font-size:15px;line-height:1.4}
+.footer-slogans span:first-child{color:var(--gold)}
+.footer-col h4{color:rgba(255,255,255,0.4);font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+.footer-col a{display:block;color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;margin-bottom:.5rem;cursor:pointer}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:.5px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom span{color:rgba(255,255,255,0.35);font-size:12px}
+.footer-bottom a{color:rgba(255,255,255,0.35);font-size:12px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="page-frame">
+<nav>
+  <div class="wrap nav-inner">
+    <div class="logo">
+      <div class="logo-text-wrap">
+        <div class="logo-title" id="logo-text">Odborová<br>organizace<br>zaměstnanců</div>
+        <div class="logo-sub">University of New York in Prague</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-top-row">
+        <div class="nav-links">
+          <a onclick="window.scrollTo({top:0,behavior:'smooth'})" data-cz="Domů" data-en="Home">Domů</a>
+          <a onclick="scrollToId('onas')" data-cz="O nás" data-en="About us">O nás</a>
+          <a onclick="scrollToId('clenstvi')" data-cz="Členství" data-en="Membership">Členství</a>
+          <a onclick="scrollToId('dokumenty')" data-cz="Dokumenty" data-en="Documents">Dokumenty</a>
+          <a onclick="scrollToId('kontakt')" data-cz="Kontakt" data-en="Contact">Kontakt</a>
+          <a onclick="scrollToId('faq')" data-cz="FAQ" data-en="FAQ">FAQ</a>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" onclick="setLang('cz')">CZ</button>
+          <button class="lang-btn" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+      <div class="nav-cta-row">
+        <a href="mailto:unyp.union@gmail.com" class="nav-cta" id="nav-cta">Napište nám</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <h1 id="hero-title">Každý z nás se může ocitnout v situaci, kdy si není jistý svými právy.</h1>
+    <p class="hero-sub" id="hero-sub">Nemusíte na to být sami. Odbory jsou tu proto, aby vám poskytly podporu, zastupovaly vaše zájmy a dlouhodobě přispívaly ke zlepšování pracovních podmínek pro všechny zaměstnance.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" onclick="scrollToId('proc-clenom')" id="btn-member">Chcete vědět víc?</a>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-item"><div class="num">VOS</div><div class="label" id="stat1">Člen VOS & ČMKOS</div></div>
+      <div class="stat-item"><div class="num">100%</div><div class="label" id="stat2">Bezplatná právní pomoc</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" id="onas">
+  <div class="wrap">
+    <div class="eyebrow" id="onas-eyebrow">Kdo jsme</div>
+    <h2 id="onas-title">O nás</h2>
+    <div class="two-col">
+      <div class="about-text">
+        <p id="onas-p1">Na UNYP zastupujeme zaměstnance a pomáháme jim řešit otázky spojené s prací, pracovními podmínkami i komunikací s vedením univerzity. Jsme nezávislá odborová organizace, která hájí zájmy svých členů a usiluje o férové pracovní prostředí pro všechny.</p>
+        <p id="onas-p2">Pravidelně jednáme s vedením UNYP a přinášíme podněty týkající se pracovních podmínek, odměňování, benefitů i dalších témat, která ovlivňují každodenní práci na univerzitě.</p>
+        <p id="onas-p4">Usilujeme o otevřenější komunikaci, lepší informovanost kolegů a pracovní prostředí založené na vzájemném respektu a dialogu.</p>
+        <p id="onas-p3">Jsme součástí Vysokoškolského odborového svazu (VOS), který zastupuje zaměstnance vysokých škol na celostátní úrovni a spolupracuje s Ministerstvem školství, Radou vysokých škol a českou konferencí rektorů.</p>
+      </div>
+      <div>
+        <div class="eyebrow" id="team-eyebrow">Výbor organizace</div>
+        <div class="team-grid">
+          <div class="team-card"><div class="name">Lenka Furuya Lehkoživová</div><div class="role" id="role1">Předsedkyně</div></div>
+          <div class="team-card"><div class="name">Anna Oravcová</div><div class="role" id="role2">Zástupkyně</div></div>
+          <div class="team-card"><div class="name">Petr Kocourek</div><div class="role" id="role3">Zástupce</div></div>
+          <div class="team-card"><div class="name">Michaela Halandová</div><div class="role" id="role4">Zástupkyně</div></div>
+        </div>
+        <div class="affil-box">
+          <h4 id="affil-title">Naše členství</h4>
+          <p id="affil-text"><strong>Vysokoškolský odborový svaz (VOS)</strong> — člen <strong>ČMKOS</strong> (Českomoravská konfederace odborových svazů). VOS se účastní národních pracovních skupin při jednáních o legislativních změnách v oblasti školství.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cinnost">
+  <div class="wrap">
+    <div class="eyebrow" id="cinnost-eyebrow">Naše činnost</div>
+    <h2 id="cinnost-title">Co pro vás děláme</h2>
+    <p class="section-intro" id="cinnost-intro" style="display:none"></p>
+    <div class="pillars">
+      <div class="pillar"><div class="pillar-accent"></div><div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 data-cz="Ochrana práv a zájmů" data-en="Protection of rights">Ochrana práv a zájmů</h3><p data-cz="Hájíme práva a zájmy všech zaměstnanců UNYP na každé úrovni." data-en="We advocate for the rights and interests of all UNYP employees at every level.">Hájíme práva a zájmy všech zaměstnanců UNYP na každé úrovni.</p></div>
+      <div class="pillar"><div class="pillar-accent"></div><div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-cz="Lepší podmínky a benefity" data-en="Better conditions & benefits">Lepší podmínky a benefity</h3><p data-cz="Aktivně podporujeme jednání o zlepšení pracovních podmínek a odměňování." data-en="We actively support negotiations on improved working conditions and remuneration.">Aktivně podporujeme jednání o zlepšení pracovních podmínek a odměňování.</p></div>
+      <div class="pillar"><div class="pillar-accent"></div><div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3 data-cz="Bezplatné právní poradenství" data-en="Free legal advice">Bezplatné právní poradenství</h3><p data-cz="Členové mají nárok na bezplatnou právní pomoc při řešení pracovních sporů." data-en="Members are entitled to free legal assistance in resolving workplace disputes.">Členové mají nárok na bezplatnou právní pomoc při řešení pracovních sporů.</p></div>
+      <div class="pillar"><div class="pillar-accent"></div><div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-cz="Férové a respektující prostředí" data-en="Fair & respectful workplace">Férové a respektující prostředí</h3><p data-cz="Usilujeme o spravedlivé zacházení a respekt na každém pracovišti UNYP." data-en="We strive for fair treatment and respect across all UNYP workplaces.">Usilujeme o spravedlivé zacházení a respekt na každém pracovišti UNYP.</p></div>
+      <div class="pillar"><div class="pillar-accent"></div><div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><h3 data-cz="Podpora v pracovních záležitostech" data-en="Support in workplace matters">Podpora v pracovních záležitostech</h3><p data-cz="Pomáháme navigovat profesní výzvy a hledat řešení složitých situací." data-en="We help navigate professional challenges and find solutions to complex situations.">Pomáháme navigovat profesní výzvy a hledat řešení složitých situací.</p></div>
+      <div class="pillar"><div class="pillar-accent"></div><div class="pillar-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 data-cz="Dlouhodobý růst UNYP" data-en="Long-term growth of UNYP">Dlouhodobý růst UNYP</h3><p data-cz="Spokojení zaměstnanci jsou základem silné a respektované instituce." data-en="Satisfied employees are the foundation of a strong and respected institution.">Spokojení zaměstnanci jsou základem silné a respektované instituce.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proc-clenom">
+  <div class="wrap">
+    <div class="eyebrow" id="proc-eyebrow">Proč se přidat</div>
+    <h2 id="proc-title">Proč se stát členem?</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-accent"></div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 data-cz="Společně dosáhneme více" data-en="Together we achieve more">Společně dosáhneme více</h3>
+        <p data-cz="Jako jednotlivec máte při jednání se zaměstnavatelem omezené možnosti. Odbory vám dávají sílu kolektivu — společně lze prosadit vyšší mzdy, lepší podmínky i férovější zacházení." data-en="As an individual, your options in negotiations with your employer are limited. The union gives you collective strength — together you can achieve higher salaries, better conditions, and fairer treatment.">Jako jednotlivec máte při jednání se zaměstnavatelem omezené možnosti. Odbory vám dávají sílu kolektivu — společně lze prosadit vyšší mzdy, lepší podmínky i férovější zacházení.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-accent"></div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 data-cz="Právní ochrana, když ji potřebujete" data-en="Legal protection when you need it">Právní ochrana, když ji potřebujete</h3>
+        <p data-cz="Členové mají přístup k bezplatnému právnímu poradenství při sporech se zaměstnavatelem — ať už jde o odměňování, pracovní podmínky nebo jiné pracovněprávní výzvy." data-en="Members have access to free legal advice in disputes with their employer — whether it concerns remuneration, working conditions, or other employment law challenges.">Členové mají přístup k bezplatnému právnímu poradenství při sporech se zaměstnavatelem — ať už jde o odměňování, pracovní podmínky nebo jiné pracovněprávní výzvy.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-accent"></div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+        <h3 data-cz="Lepší mzdy a benefity" data-en="Better salaries and benefits">Lepší mzdy a benefity</h3>
+        <p data-cz="Odbory vyjednávají nejen o platech, ale také o benefitech, délce dovolené, flexibilní pracovní době nebo možnosti práce z domova. Kolektivní vyjednávání přináší výsledky, které by jednotlivec jen těžko prosadil." data-en="Unions negotiate not only salaries, but also benefits, holiday entitlement, flexible working hours, and remote work options. Collective bargaining delivers results that would be hard to achieve individually.">Odbory vyjednávají nejen o platech, ale také o benefitech, délce dovolené, flexibilní pracovní době nebo možnosti práce z domova. Kolektivní vyjednávání přináší výsledky, které by jednotlivec jen těžko prosadil.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-accent"></div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M5 21v-2a4 4 0 0 1 4-4h2"/><path d="M15 12c1.5.5 2 1.5 2 2.5"/><path d="M17 9.5c2 .8 3.5 2.8 3.5 4.5"/></svg></div>
+        <h3 data-cz="Hlas, který je slyšet" data-en="A voice that is heard">Hlas, který je slyšet</h3>
+        <p data-cz="Odbory jsou jediným subjektem, který může se zaměstnavatelem vést kolektivní vyjednávání. Váš hlas se tak dostane tam, kam by se sám nikdy nedostal." data-en="Unions are the only entity that can engage in collective bargaining with the employer. Your voice reaches places it could never reach alone.">Odbory jsou jediným subjektem, který může se zaměstnavatelem vést kolektivní vyjednávání. Váš hlas se tak dostane tam, kam by se sám nikdy nedostal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" id="clenstvi">
+  <div class="wrap">
+    <div class="eyebrow" id="clenstvi-eyebrow">Přidejte se k nám</div>
+    <h2 id="clenstvi-title">Členství</h2>
+    <p class="section-intro" id="clenstvi-intro">Členem se může stát každý zaměstnanec UNYP. Členství je dobrovolné a anonymní. Je spojeno s jednorázovým registračním poplatkem a měsíčním příspěvkem. Aktuální výši poplatků vám rádi sdělíme.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3XmOaoFAt5JptMV_GILQ0qLpkgtTO6W4kaO-XYusAkbZ27Q/viewform?usp=publish-editor" target="_blank" id="form-btn" style="display:inline-block;margin-bottom:2.5rem;background:var(--navy);color:#fff;padding:.75rem 1.75rem;border-radius:4px;text-decoration:none;font-weight:500;font-size:15px;transition:background .2s">Vyplnit přihlášku →</a>
+    <div class="eyebrow" id="steps-eyebrow" style="margin-bottom:1.5rem">Jak to proběhne</div>
+    <div class="member-steps">
+      <div class="step"><h3 id="step1-title">Vyplňte přihlášku</h3><p id="step1-text">Vyplňte online přihlášku — nebo nás kontaktujte emailem či osobně.</p></div>
+      <div class="step"><h3 id="step2-title">Posouzení</h3><p id="step2-text">Výbor posoudí vaši přihlášku a potvrdí vaše členství.</p></div>
+      <div class="step"><h3 id="step3-title">A poslední krok…</h3><p id="step3-text">Po úhradě registračního poplatku se stanete právoplatným členem odborové organizace.</p></div>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:1rem" id="private-email-note">* Prosíme, používejte při komunikaci svou soukromou e-mailovou adresu.</p>
+  </div>
+</section>
+
+<section class="section section-white" id="faq">
+  <div class="wrap">
+    <div class="eyebrow" id="faq-eyebrow">Máte otázky?</div>
+    <h2 id="faq-title">Nejčastější otázky</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q" data-cz="Dozví se zaměstnavatel, že jsem členem?" data-en="Will my employer find out I'm a member?">Dozví se zaměstnavatel, že jsem členem?</button>
+        <div class="faq-a" data-cz="Ne. Členství v odborové organizaci je anonymní. Zaměstnavatel nemá ze zákona právo zjišťovat, kdo je členem ani kolik členů organizace má." data-en="No. Union membership is anonymous. Your employer has no legal right to find out who is a member or how many members the union has.">Ne. Členství v odborové organizaci je anonymní. Zaměstnavatel nemá ze zákona právo zjišťovat, kdo je členem ani kolik členů organizace má.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-cz="Kolik členství stojí?" data-en="How much does membership cost?">Kolik členství stojí?</button>
+        <div class="faq-a" data-cz="Členství je spojeno s jednorázovým registračním poplatkem a měsíčním příspěvkem. Pro aktuální výši poplatků nás prosím kontaktujte na unyp.union@gmail.com." data-en="Membership involves a one-time registration fee and a monthly contribution. Please contact us at unyp.union@gmail.com for current amounts.">Členství je spojeno s jednorázovým registračním poplatkem a měsíčním příspěvkem. Pro aktuální výši poplatků nás prosím kontaktujte na unyp.union@gmail.com.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-cz="Musím se angažovat nebo chodit na schůzky?" data-en="Do I have to be active or attend meetings?">Musím se angažovat nebo chodit na schůzky?</button>
+        <div class="faq-a" data-cz="Ne. Členství je zcela dobrovolné a nevyžaduje žádnou aktivní účast. Zapojit se můžete tolik, kolik chcete." data-en="No. Membership is entirely voluntary and requires no active participation. You can get involved as much or as little as you like.">Ne. Členství je zcela dobrovolné a nevyžaduje žádnou aktivní účast. Zapojit se můžete tolik, kolik chcete.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-cz="Mohu z odborů kdykoliv vystoupit?" data-en="Can I leave the union at any time?">Mohu z odborů kdykoliv vystoupit?</button>
+        <div class="faq-a" data-cz="Ano. Členství je dobrovolné a z organizace můžete kdykoliv vystoupit bez udání důvodu. Ukončení členství stačí oznámit písemně e-mailem na unyp.union@gmail.com." data-en="Yes. Membership is voluntary and you can leave at any time without giving a reason. To end your membership, simply notify us in writing by e-mail at unyp.union@gmail.com.">Ano. Členství je dobrovolné a z organizace můžete kdykoliv vystoupit bez udání důvodu. Ukončení členství stačí oznámit písemně e-mailem na unyp.union@gmail.com.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-cz="Co když mám problém se zaměstnavatelem?" data-en="What if I have a problem with my employer?">Co když mám problém se zaměstnavatelem?</button>
+        <div class="faq-a" data-cz="Jako člen máte nárok na bezplatné právní poradenství. Kontaktujte nás a společně najdeme řešení." data-en="As a member, you are entitled to free legal advice. Contact us and we will find a solution together.">Jako člen máte nárok na bezplatné právní poradenství. Kontaktujte nás a společně najdeme řešení.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" data-cz="Jsem jediný, koho to zajímá?" data-en="Am I the only one interested?">Jsem jediný, koho to zajímá?</button>
+        <div class="faq-a" data-cz="Nejste sami. Naše organizace sdružuje zaměstnance UNYP, kteří chtějí férové pracovní podmínky. Každý hlas má váhu." data-en="You are not alone. Our organization brings together UNYP employees who want fair working conditions. Every voice matters.">Nejste sami. Naše organizace sdružuje zaměstnance UNYP, kteří chtějí férové pracovní podmínky. Každý hlas má váhu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="dokumenty">
+  <div class="wrap">
+    <div class="eyebrow" id="docs-eyebrow">Užitečné odkazy</div>
+    <h2 id="docs-title">Dokumenty a odkazy</h2>
+    <p class="section-intro" id="docs-intro">Oficiální dokumenty a stránky organizací, jichž jsme součástí.</p>
+    <div class="docs-grid">
+      <a href="https://vysokoskolskeodbory.cz/dokumenty/" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="doc-text"><h3 data-cz="Stanovy VOS" data-en="VOS Statutes">Stanovy VOS</h3><p data-cz="Stanovy a finanční řád Vysokoškolského odborového svazu" data-en="Statutes and financial rules of the Higher Education Trade Union">Stanovy a finanční řád Vysokoškolského odborového svazu</p></div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a href="https://vysokoskolskeodbory.cz/" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="doc-text"><h3 data-cz="Vysokoškolský odborový svaz" data-en="Higher Education Trade Union">Vysokoškolský odborový svaz</h3><p data-cz="Webové stránky VOS — aktuality, dokumenty, kontakty" data-en="VOS website — news, documents, contacts">Webové stránky VOS — aktuality, dokumenty, kontakty</p></div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a href="https://www.cmkos.cz/" target="_blank" class="doc-card">
+        <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="doc-text"><h3 data-cz="ČMKOS" data-en="ČMKOS">ČMKOS</h3><p data-cz="Českomoravská konfederace odborových svazů" data-en="Czech-Moravian Confederation of Trade Unions">Českomoravská konfederace odborových svazů</p></div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo" id="footer-logo">Odborová organizace zaměstnanců UNYP</div>
+        <p class="footer-desc" id="footer-desc" style="display:none"></p>
+        <div class="footer-slogans" id="footer-slogans">
+          <span data-cz="Vaše práva, naše priorita." data-en="Your rights, our priority.">Vaše práva, naše priorita.</span>
+          <span data-cz="Vaše práce, naše společná starost." data-en="Your work, our shared concern.">Vaše práce, naše společná starost.</span>
+          <span data-cz="Vaše starosti, naše společná řešení." data-en="Your worries, our shared solutions.">Vaše starosti, naše společná řešení.</span>
+          <span data-cz="Vaše jistota, naše společná síla." data-en="Your security, our shared strength.">Vaše jistota, naše společná síla.</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer-nav-title">Navigace</h4>
+        <a onclick="window.scrollTo({top:0,behavior:'smooth'})" data-cz="Domů" data-en="Home">Domů</a>
+        <a onclick="scrollToId('onas')" data-cz="O nás" data-en="About us">O nás</a>
+        <a onclick="scrollToId('clenstvi')" data-cz="Členství" data-en="Membership">Členství</a>
+        <a onclick="scrollToId('kontakt')" data-cz="Kontakt" data-en="Contact">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer-contact-title">Kontakt</h4>
+        <a style="cursor:default">Odborová organizace zaměstnanců VŠ&nbsp;UNYP</a>
+        <a>Londýnská 506/41, 120 00 Praha 2</a>
+        <a href="mailto:unyp.union@gmail.com">unyp.union@gmail.com</a>
+        <a>IČO: 24003581</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="footer-copy">© 2025 Odborová organizace zaměstnanců VŠ UNYP</span>
+      <a onclick="document.getElementById('gdpr-modal').style.display='flex'" style="cursor:pointer" id="footer-gdpr">Ochrana osobních údajů</a>
+    </div>
+    <div style="border-top:.5px solid rgba(255,255,255,0.08);margin-top:1.25rem;padding-top:1.25rem">
+      <p id="footer-disclaimer" style="color:rgba(255,255,255,0.3);font-size:11px;line-height:1.6;margin:0">Nezávislá odborová organizace. Tato stránka není oficiálním webem University of New York in Prague.</p>
+    </div>
+  </div>
+</footer>
+</div>
+
+<div id="gdpr-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;align-items:center;justify-content:center;padding:1.5rem" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#fff;max-width:680px;max-height:85vh;overflow-y:auto;border-radius:12px;padding:2.5rem">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem">
+      <h2 style="font-family:'Lora',serif;font-size:1.6rem;color:var(--navy);margin:0" id="gdpr-h">Zásady ochrany osobních údajů</h2>
+      <button onclick="document.getElementById('gdpr-modal').style.display='none'" style="background:none;border:none;font-size:1.8rem;color:var(--text-muted);cursor:pointer;line-height:1;padding:0">×</button>
+    </div>
+    <div id="gdpr-body" style="font-size:14px;color:var(--text-muted);line-height:1.8">
+      <p style="margin-bottom:1rem"><strong style="color:var(--navy)">Správce údajů:</strong> Odborová organizace zaměstnanců VŠ UNYP, Londýnská 506/41, 120 00 Praha 2, IČO: 24003581, e-mail: unyp.union@gmail.com.</p>
+      <p style="margin-bottom:1rem"><strong style="color:var(--navy)">Jaké údaje zpracováváme:</strong> Pči podání přihlášky o členství zpracováváme vaše jméno a příjmení, datum narození, kontaktní e-mail a adresu. Údaje získáváme prostřednictvím online přihlášky (Google Forms), e-mailem nebo z fyzické přihlášky.</p>
+      <p style="margin-bottom:1rem"><strong style="color:var(--navy)">Účel zpracování:</strong> Údaje zpracováváme výhradně za účelem evidence členství, komunikace se členy a plnění úkolů odborové organizace.</p>
+      <p style="margin-bottom:1rem"><strong style="color:var(--navy)">Přístup k údajům:</strong> K osobním údajům mají přístup pouze zástupci odborové organizace (výbor). Údaje nepředáváme třetím stranám s výjimkou případů, kdy nám to ukládá zákon.</p>
+      <p style="margin-bottom:1rem"><strong style="color:var(--navy)">Doba uchování:</strong> Údaje uchováváme po dobu trvání členství a následně po dobu nezbytně nutnou v souladu s právními předpisy.</p>
+      <p style="margin-bottom:1rem"><strong style="color:var(--navy)">Vaše práva:</strong> Máte právo na přístup ke svým údajům, jejich opravu nebo výmaz, omezení zpracování a podání námitky. Pro uplatnění práv nás kontaktujte na unyp.union@gmail.com. Rovněž máte právo podat stížnost u Úřadu pro ochranu osobních údajů.</p>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:1.5rem;font-style:italic">Tyto zásady jsou informativní. Zpracování probíhá v souladu s nařízením GDPR (EU) 2016/679.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const translations = {
+  cz: {
+    'logo-text': 'Odborová<br>organizace<br>zaměstnanců',
+    'hero-title': 'Každý z nás se může ocitnout v situaci, kdy si není jistý svými právy.',
+    'hero-sub': 'Nemusíte na to být sami. Odbory jsou tu proto, aby vám poskytly podporu, zastupovaly vaše zájmy a dlouhodobě přispívaly ke zlepšování pracovních podmínek pro všechny zaměstnance.',
+    'btn-member': 'Chcete vědět víc?', 'nav-cta': 'Napište nám',
+    'stat1': 'Člen VOS & ČMKOS', 'stat2': 'Bezplatná právní pomoc', 'stat3': 'Zástupci zaměstnanců',
+    'onas-eyebrow': 'Kdo jsme', 'onas-title': 'O nás',
+    'onas-p1': 'Na UNYP zastupujeme zaměstnance a pomáháme jim řešit otázky spojené s prací, pracovními podmínkami i komunikací s vedením univerzity. Jsme nezávislá odborová organizace, která hájí zájmy svých členů a usiluje o férové pracovní prostředí pro všechny.',
+    'onas-p2': 'Pravidelně jednáme s vedením UNYP a přinášíme podněty týkající se pracovních podmínek, odměňování, benefitů i dalších témat, která ovlivňují každodenní práci na univerzitě.',
+    'onas-p3': 'Jsme součástí Vysokoškolského odborového svazu (VOS), který zastupuje zaměstnance vysokých škol na celostátní úrovni a spolupracuje s Ministerstvem školství, Radou vysokých škol a českou konferencí rektorů.',
+    'onas-p4': 'Usilujeme o otevřenější komunikaci, lepší informovanost kolegů a pracovní prostředí založené na vzájemném respektu a dialogu.',
+    'affil-title': 'Naše členství',
+    'affil-text': '<strong>Vysokoškolský odborový svaz (VOS)</strong> — člen <strong>ČMKOS</strong> (Českomoravská konfederace odborových svazů). VOS se účastní národních pracovních skupin při jednáních o legislativních změnách v oblasti školství.',
+    'team-eyebrow': 'Výbor organizace',
+    'role1': 'Předsedkyně', 'role2': 'Zástupkyně', 'role3': 'Zástupce', 'role4': 'Zástupkyně',
+    'cinnost-eyebrow': 'Naše činnost', 'cinnost-title': 'Co pro vás děláme',
+    'cinnost-intro': '',
+    'clenstvi-eyebrow': 'Přidejte se k nám', 'clenstvi-title': 'Členství',
+    'clenstvi-intro': 'Členem se může stát každý zaměstnanec UNYP. Členství je dobrovolné a anonymní. Je spojeno s jednorázovým registračním poplatkem a měsíčním příspěvkem. Aktuální výši poplatků vám rádi sdělíme.',
+    'benefits-eyebrow': '', 'steps-eyebrow': 'Jak to proběhne',
+    'step1-title': 'Vyplňte přihlášku', 'step1-text': 'Vyplňte online přihlášku — nebo nás kontaktujte emailem či osobně.',
+    'form-btn': 'Vyplnit přihlášku →',
+    'step2-title': 'Posouzení', 'step2-text': 'Výbor posoudí vaši přihlášku a potvrdí vaše členství.',
+    'step3-title': 'A poslední krok…', 'step3-text': 'Po úhradě registračního poplatku se stanete právoplatným členem odborové organizace.',
+    'private-email-note': '* Prosíme, používejte při komunikaci svou soukromou e-mailovou adresu.',
+    'faq-eyebrow': 'Máte otázky?', 'faq-title': 'Nejčastější otázky',
+    'proc-eyebrow': 'Proč se přidat', 'proc-title': 'Proč se stát členem?',
+    'docs-eyebrow': 'Užitečné odkazy', 'docs-title': 'Dokumenty a odkazy',
+    'docs-intro': 'Oficiální dokumenty a stránky organizací, jichž jsme součástí.',
+    'contact-title': 'Máte otázky nebo potřebujete pomoc?',
+    'footer-logo': 'Odborová organizace zaměstnanců UNYP',
+    'footer-desc': 'Společně za férové pracovní podmínky, lepší benefity a respektující prostředí na University of New York in Prague.',
+    'footer-nav-title': 'Navigace', 'footer-contact-title': 'Kontakt',
+    'footer-copy': '© 2025 Odborová organizace zaměstnanců VŠ UNYP',
+    'footer-gdpr': 'Ochrana osobních údajů',
+    'footer-disclaimer': 'Nezávislá odborová organizace. Tato stránka není oficiálním webem University of New York in Prague.',
+    'contact-btn': 'Napište nám',
+  },
+  en: {
+    'logo-text': 'Employees<br>Labor Union',
+    'hero-title': 'Any of us can find ourselves unsure of our rights at work.',
+    'hero-sub': 'You don\'t have to face it alone. Our union is here to give you support, represent your interests, and contribute to improving working conditions for all employees over the long term.',
+    'btn-member': 'Would you like to know more?', 'nav-cta': 'Contact us',
+    'stat1': 'Member of VOS & ČMKOS', 'stat2': 'Free legal assistance', 'stat3': 'Employee representatives',
+    'onas-eyebrow': 'Who we are', 'onas-title': 'About us',
+    'onas-p1': 'At UNYP, we represent employees and help them address questions related to work, working conditions, and communication with university management. We are an independent labor union that defends the interests of its members and strives for a fair working environment for everyone.',
+    'onas-p2': 'We regularly negotiate with UNYP management and bring forward employees\' suggestions regarding working conditions, remuneration, benefits, and other topics that affect everyday work at the university.',
+    'onas-p3': 'We are part of the Higher Education Trade Union (VOS), which represents employees of higher education institutions at the national level and cooperates with the Ministry of Education, the Council of Higher Education Institutions, and the Czech Rectors Conference.',
+    'onas-p4': 'We strive for more open communication, better-informed employees, and a working environment built on mutual respect and dialogue.',
+    'affil-title': 'Our affiliation',
+    'affil-text': '<strong>Higher Education Trade Union (VOS)</strong> — member of <strong>ČMKOS</strong> (Czech-Moravian Confederation of Trade Unions). VOS participates in national working groups in negotiations on legislative changes affecting the education sector.',
+    'team-eyebrow': 'Union committee',
+    'role1': 'Chairwoman', 'role2': 'Representative', 'role3': 'Representative', 'role4': 'Representative',
+    'cinnost-eyebrow': 'What we do', 'cinnost-title': 'How we help you',
+    'cinnost-intro': '',
+    'clenstvi-eyebrow': 'Join us', 'clenstvi-title': 'Membership',
+    'clenstvi-intro': 'Any UNYP employee can become a member. Membership is voluntary and anonymous. It involves a one-time registration fee and a monthly contribution. We will gladly tell you the current fees.',
+    'benefits-eyebrow': '', 'steps-eyebrow': 'How it works',
+    'step1-title': 'Fill in the form', 'step1-text': 'Fill in the online application form — or contact us at unyp.union@gmail.com or in person.',
+    'form-btn': 'Application form →',
+    'step2-title': 'Review', 'step2-text': 'The committee will review your application and confirm your membership.',
+    'step3-title': 'And the last step…', 'step3-text': 'Upon payment of the registration fee, you become a full member of the union.',
+    'private-email-note': '* Please use your private (personal) email address when communicating with union representatives.',
+    'faq-eyebrow': 'Got questions?', 'faq-title': 'Frequently asked questions',
+    'proc-eyebrow': 'Why join', 'proc-title': 'Why become a member?',
+    'docs-eyebrow': 'Useful links', 'docs-title': 'Documents and links',
+    'docs-intro': 'Official documents and websites of the organizations we are part of.',
+    'contact-title': 'Have questions or need help?',
+    'footer-logo': 'UNYP Employees Labor Union',
+    'footer-desc': 'Together for fair working conditions, better benefits, and a respectful environment at the University of New York in Prague.',
+    'footer-nav-title': 'Navigation', 'footer-contact-title': 'Contact',
+    'footer-copy': '© 2025 Odborová organizace zaměstnanců VŠ UNYP',
+    'footer-gdpr': 'Privacy policy',
+    'footer-disclaimer': 'An independent labor union. This website is not an official website of the University of New York in Prague.',
+    'contact-btn': 'Contact us',
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  const t = translations[lang];
+  for (const [id, val] of Object.entries(t)) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  }
+  document.querySelectorAll('[data-cz]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val) el.textContent = val;
+  });
+}
+
+function scrollToId(id) {
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+}
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.parentElement.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

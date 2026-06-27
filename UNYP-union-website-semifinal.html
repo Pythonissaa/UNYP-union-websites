@@ -39,7 +39,12 @@ nav{background:var(--navy);padding:2rem 0 1rem}
   .step{border-right:none !important;border-bottom:0.5px solid var(--border)}
   .hero-stat{gap:1.5rem}
   .footer-inner{grid-template-columns:1fr !important}
+  .hamburger{display:block !important}
 }
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;padding:0;line-height:1;margin-bottom:.5rem}
+.mobile-menu{display:none;flex-direction:column;background:var(--navy)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.85);text-decoration:none;padding:.9rem 2rem;border-top:0.5px solid rgba(255,255,255,0.1);font-size:15px;cursor:pointer}
 .faq{margin-top:2rem}
 .faq-item{border-bottom:0.5px solid var(--border)}
 .faq-q{width:100%;text-align:left;background:none;border:none;padding:1.25rem 0;font-size:15px;font-weight:600;color:var(--text-dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:'Inter',sans-serif}
@@ -58,7 +63,7 @@ nav{background:var(--navy);padding:2rem 0 1rem}
 .hero{background:var(--navy);padding:5rem 0 4rem;position:relative;overflow:hidden}
 .hero .wrap{position:relative;z-index:2}
 .hero-people{position:absolute;right:11rem;bottom:0;width:28%;max-width:320px;opacity:.85;z-index:1;pointer-events:none}
-@media(max-width:768px){.hero-people{display:none}}
+@media(max-width:768px){.hero-people{display:block;right:0.5rem;width:24%;max-width:100px;opacity:.6}}
 .proc-crowd{display:block;margin:0 auto 3rem;max-width:600px;width:100%;opacity:.95}
 
 .hero::before{content:'';position:absolute;top:0;right:0;width:400px;height:100%;background:linear-gradient(135deg,transparent 50%,rgba(201,149,42,0.08) 100%)}
@@ -139,6 +144,7 @@ footer{background:var(--navy);padding:3rem 0 2rem}
       </div>
     </div>
     <div class="nav-right">
+      <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()">&#9776;</button>
       <div class="nav-top-row">
         <div class="nav-links">
           <a onclick="window.scrollTo({top:0,behavior:'smooth'})" data-cz="Domů" data-en="Home">Domů</a>
@@ -159,6 +165,14 @@ footer{background:var(--navy);padding:3rem 0 2rem}
     </div>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a onclick="window.scrollTo({top:0,behavior:'smooth'});closeMobileMenu()" data-cz="Domů" data-en="Home">Domů</a>
+  <a onclick="scrollToId('onas');closeMobileMenu()" data-cz="O nás" data-en="About us">O nás</a>
+  <a onclick="scrollToId('clenstvi');closeMobileMenu()" data-cz="Členství" data-en="Membership">Členství</a>
+  <a onclick="scrollToId('dokumenty');closeMobileMenu()" data-cz="Dokumenty" data-en="Documents">Dokumenty</a>
+  <a onclick="scrollToId('kontakt');closeMobileMenu()" data-cz="Kontakt" data-en="Contact">Kontakt</a>
+  <a onclick="scrollToId('faq');closeMobileMenu()" data-cz="FAQ" data-en="FAQ">FAQ</a>
+</div>
 
 <section class="hero" id="hero">
   <div class="wrap">
@@ -478,6 +492,18 @@ function setLang(lang) {
 
 function scrollToId(id) {
   document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('hamburger-btn');
+  const isOpen = menu.classList.toggle('open');
+  btn.innerHTML = isOpen ? '&#10005;' : '&#9776;';
+}
+
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger-btn').innerHTML = '&#9776;';
 }
 
 // FAQ toggle
